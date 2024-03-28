@@ -2,14 +2,15 @@
 
 **Summary**
 
-| Field        | Detail                                                                                           |
-| ------------ | ------------------------------------------------------------------------------------------------ |
-| Project Name | OpusManifest                                                                                     |
-| Description  | A database where composers can enter their compositions' details and show their catalog of works |
-| Developers   | Hojoon Kim                                                                                       |
-| Live Website |                                                                                                  |
-| Repo-back    | https://github.com/hojoon0724/opusManifest-back                                                  |
-| Repo-front   | https://github.com/hojoon0724/opusManifest-front                                                 |
+| Field         | Detail                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------ |
+| Project Name  | OpusManifest                                                                                     |
+| Description   | A database where composers can enter their compositions' details and show their catalog of works |
+| Developers    | Hojoon Kim                                                                                       |
+| Repo-back     | https://github.com/hojoon0724/opusManifest-back                                                  |
+| Repo-front    | https://github.com/hojoon0724/opusManifest-front                                                 |
+| Live Backend  | https://opusmanifest-back.onrender.com                                                           |
+| Live Frontend |                                                                                                  |
 
 ## Problem Being Solved and Target Market
 
@@ -23,6 +24,10 @@ Composers struggle to keep track of their works and showcase them effectively on
 - Users can see a detail page of selected work
 - Users can update the work
 - Users can delete the work
+
+## Backend Server
+
+https://opusmanifest-back.onrender.com/
 
 ## Component Architecture
 
