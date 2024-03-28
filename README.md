@@ -46,7 +46,7 @@ flowchart LR
   Main-->Router
   Router-->Home
   Router-->Dashboard
-  Dashboard-->Individual page
+  Dashboard-->workPage
 ```
 
 ## User Interface Mockups
