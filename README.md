@@ -24,18 +24,6 @@ Composers struggle to keep track of their works and showcase them effectively on
 - Users can update the work
 - Users can delete the work
 
-## Route Tables
-
-You should also include any additional notes on any special headers that may be used and so forth.
-
-| Endpoint          | Method | Response                                        | Other                               |
-| ----------------- | ------ | ----------------------------------------------- | ----------------------------------- |
-| /compositions     | GET    | JSON of all items                               |                                     |
-| /compositions     | POST   | Create new item return JSON of new item         | body must include data for new item |
-| /compositions/:id | GET    | JSON of item with matching id number            |                                     |
-| /compositions/:id | PUT    | update item with matching idea, return its JSON | body must include updated data      |
-| /compositions/:id | DELETE | delete the item with the matching id            |                                     |
-
 ## Component Architecture
 
 ```mermaid
@@ -50,3 +38,5 @@ flowchart LR
 ```
 
 ## User Interface Mockups
+
+WIP
