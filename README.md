@@ -44,9 +44,22 @@ flowchart LR
 
 ## User Interface Mockups
 
+## Desktop
+
+#### Index
+
 <img src="./wireframeMockup/Index@1x.png">
+#### Show
 <img src="./wireframeMockup/Show@1x.png">
+#### Bulk Edit
 <img src="./wireframeMockup/Bulk Edit@1x.png">
+
+## Mobile
+
+#### Index
+
 <img src="./wireframeMockup/Index Mobile.png">
+#### Show
 <img src="./wireframeMockup/Show Mobile.png">
+#### Bulk Edit
 <img src="./wireframeMockup/Bulk Edit Mobile.png">
