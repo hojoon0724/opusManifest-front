@@ -40,7 +40,7 @@ flowchart LR
   Router-->Admin
   Router-->Index
   Index-->Show
-  Index-->Create
+  Admin-->Create
   Admin-->AdminShow
   Admin-->Edit
   Admin-->Delete
