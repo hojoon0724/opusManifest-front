@@ -44,4 +44,4 @@ flowchart LR
 
 ## User Interface Mockups
 
-WIP
+<img src="./wireframeMockup/Show@1x.png">
