@@ -46,7 +46,7 @@ flowchart LR
 
 <img src="./wireframeMockup/Index@1x.png">
 <img src="./wireframeMockup/Show@1x.png">
-<img src="./wireframeMockup/Bulk_Edit@1x.png">
+<img src="./wireframeMockup/Bulk Edit@1x.png">
 <img src="./wireframeMockup/Show@1x.png">
 <img src="./wireframeMockup/Show@1x.png">
 <img src="./wireframeMockup/Show@1x.png">
