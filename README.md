@@ -44,4 +44,11 @@ flowchart LR
 
 ## User Interface Mockups
 
+<img src="./wireframeMockup/Index@1x.png">
+<img src="./wireframeMockup/Show@1x.png">
+<img src="./wireframeMockup/Bulk_Edit@1x.png">
+<img src="./wireframeMockup/Show@1x.png">
+<img src="./wireframeMockup/Show@1x.png">
+<img src="./wireframeMockup/Show@1x.png">
+<img src="./wireframeMockup/Show@1x.png">
 <img src="./wireframeMockup/Show@1x.png">
