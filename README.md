@@ -37,9 +37,13 @@ flowchart LR
   App-->Main
   App-->Footer
   Main-->Router
-  Router-->Home
-  Router-->Dashboard
-  Dashboard-->workPage
+  Router-->Admin
+  Router-->Index
+  Index-->Show
+  Index-->Create
+  Admin-->Show
+  Admin-->Edit
+  Admin-->Delete
 ```
 
 ## User Interface Mockups
