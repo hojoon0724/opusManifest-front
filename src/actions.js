@@ -21,11 +21,9 @@ async function createAction({ request, params }) {
   });
   return redirect('/dashboard');
 }
-// Read
 
 // Update
 
 // Delete
 
 export default createAction;
-``;
