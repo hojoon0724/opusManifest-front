@@ -2,37 +2,110 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+:root {
+  --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+  --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+  --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+  --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+  --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+  --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+  --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+  font-family: roboto;
+
+  --hue: 200;
+  --saturation: 100%;
+
+  --black: hsl(var(--hue), var(--saturation), 3%);
+  --white: hsl(var(--hue), var(--saturation), 98%);
+  --dark: hsl(var(--hue), var(--saturation), 10%);
+  --bright: hsl(var(--hue), 70%, 85%);
+
+  --tr-slow: 0.7s ease-in-out;
+  --tr-fast: 0.3s ease-in-out;
+}
+
+html {
+  color-scheme: dark light;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100svh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.page-wrapper {
+  min-height: 100svh;
+  max-width: 100svw;
+}
+
+.top-container {
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
+}
+
+.header {
+  min-height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+  background-color: var(--dark);
 }
 
-.App-link {
-  color: #61dafb;
+.footer {
+  background-color: var(--dark);
+  min-height: 16px;
+  padding: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content-container {
+  margin-bottom: auto;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+}
+.catalog {
+  display: flex;
+  flex-direction: column;
+}
+
+.composition-data {
+  display: flex;
+  flex-direction: row;
 }

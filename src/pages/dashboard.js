@@ -11,7 +11,7 @@ function Dashboard() {
     <div className="page-wrapper">
       <div className="top-container">
         <Header />
-        <div className="catalog-container">
+        <div className="content-container">
           <div className="add-new-work-form-container">
             <AddNewWork />
           </div>

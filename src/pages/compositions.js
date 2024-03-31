@@ -10,7 +10,7 @@ function Compositions() {
     <div className="page-wrapper">
       <div className="top-container">
         <Header />
-        <div className="catalog-container">
+        <div className="content-container">
           <Catalog data={data} />
         </div>
         <Footer />
