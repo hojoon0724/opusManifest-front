@@ -3,12 +3,16 @@ import App from './App';
 import Compositions from './pages/compositions';
 import Dashboard from './pages/dashboard';
 import compositionsLoader from './loaders';
+import { createAction, deleteAction, updateAction } from './actions';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="compositions" element={<Compositions />} loader={compositionsLoader} />
+      <Route path="" element={<Compositions />} loader={compositionsLoader} />
       <Route path="dashboard" element={<Dashboard />} loader={compositionsLoader} />
+      <Route path="/compositions" action={createAction} />
+      <Route path="/compositions/:id" action={updateAction} />
+      <Route path="/compositions/:id" action={deleteAction} />
     </Route>
   )
 );

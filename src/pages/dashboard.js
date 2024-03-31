@@ -1,6 +1,7 @@
 import Header from '../components/header';
 import Footer from '../components/footer';
-import EditCatalog from '../components/editCatalog';
+import { AddNewWork } from '../components/addNewWork';
+import { EditCatalog } from '../components/editCatalog';
 import { useLoaderData } from 'react-router-dom';
 
 function Dashboard() {
@@ -11,7 +12,12 @@ function Dashboard() {
       <div className="top-container">
         <Header />
         <div className="catalog-container">
-          <EditCatalog data={data} />
+          <div className="add-new-work-form-container">
+            <AddNewWork />
+          </div>
+          <div className="existing-works-container">
+            <EditCatalog data={data} />
+          </div>
         </div>
         <Footer />
       </div>

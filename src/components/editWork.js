@@ -1,7 +1,6 @@
 import { Form } from 'react-router-dom';
 
 function EditWork({ work }) {
-  console.log(work);
   const id = work.url.split('/')[4];
   return (
     <div className="composition-data" key={id}>
@@ -10,7 +9,7 @@ function EditWork({ work }) {
       <div className="year">{work.year}</div>
       <div className="instrumentation">{work.instrumentation}</div>
       <div className="publisher">{work.publisher}</div>
-      <form>
+      <Form action={`/compositions/${id}/`} method="post">
         <label>
           title
           <input type="text" name="title" className="title" defaultValue={work.title} />
@@ -37,7 +36,10 @@ function EditWork({ work }) {
         </label>
 
         <input type="submit" value="Update" />
-      </form>
+      </Form>
+      <Form action={`/compositions/${id}/`} method="post">
+        <input type="submit" value="Delete" />
+      </Form>
     </div>
   );
 }
