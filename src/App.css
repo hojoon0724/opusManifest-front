@@ -97,15 +97,92 @@ p {
 .content-container {
   margin-bottom: auto;
   display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 16px;
 }
 .catalog {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .composition-data {
+  display: grid;
+  grid-template-columns: 50% 6ch auto 20ch;
+  width: 100%;
+}
+
+.composition-data > * {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.work-title-wrapper {
+  width: 50%;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2rem;
+  width: 100%;
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: left;
+  width: 100%;
+}
+
+.year {
+  width: 6ch;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instrumentation {
+  width: auto;
+}
+
+.publisher {
+  width: 100%;
+  justify-content: end;
+  text-align: right;
+}
+
+.edit-form-wrapper {
   display: flex;
   flex-direction: row;
+}
+
+/* .edit-form-wrapper > * {
+  border: 1px solid red;
+} */
+
+.editing-block {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+/* .editing-block > * {
+  border: 1px solid red;
+} */
+
+.form-input {
+  font-size: 1rem;
+  margin: 4px;
+}
+
+label {
+  font-size: 0.8rem;
+  padding: 8px;
+}
+
+hr {
+  margin: 24px 0px;
 }
