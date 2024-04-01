@@ -25,9 +25,17 @@ Composers struggle to keep track of their works and showcase them effectively on
 - Users can update the work
 - Users can delete the work
 
-## Backend Server
+## Server Details
 
-https://opusmanifest-back.onrender.com/
+Server url: https://opusmanifest-back.onrender.com/
+
+| Endpoint          | Method | Response                                        | Other                               |
+| ----------------- | ------ | ----------------------------------------------- | ----------------------------------- |
+| /compositions     | GET    | JSON of all items                               |                                     |
+| /compositions     | POST   | Create new item return JSON of new item         | body must include data for new item |
+| /compositions/:id | GET    | JSON of item with matching id number            |                                     |
+| /compositions/:id | PUT    | update item with matching idea, return its JSON | body must include updated data      |
+| /compositions/:id | DELETE | delete the item with the matching id            |                                     |
 
 ## Component Architecture
 
