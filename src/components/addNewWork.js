@@ -2,33 +2,40 @@ import { Form } from 'react-router-dom';
 
 export function AddNewWork() {
   return (
-    <Form action="/compositions" method="post">
-      <label className="title-label">
-        title
-        <input type="text" name="title" className="title" />
-      </label>
-
-      <label className="subtitle-label">
-        subtitle
-        <input type="text" name="subtitle" className="subtitle" />
-      </label>
-
-      <label className="year-label">
+    <Form action="/compositions" method="post" className="add-new-work-form edit-form flex row">
+      <label>
         year
-        <input type="text" name="year" className="year" />
+        <input type="text" name="year" className="year form-input" />
       </label>
-
-      <label className="instrumentation-label">
+      <div className="work-title-wrapper">
+        <label>
+          title
+          <input type="text" name="title" className="title form-input" />
+        </label>
+        <label>
+          subtitle
+          <input type="text" name="subtitle" className="subtitle form-input" />
+        </label>
+      </div>
+      <label>
         instrumentation
-        <input type="text" name="instrumentation" className="instrumentation" />
+        <textarea type="text" name="instrumentation" className="instrumentation form-input" />
+      </label>
+      <label>
+        category
+        <input type="text" name="category" className="category form-input" />
       </label>
 
-      <label className="publisher-label">
-        publisher
-        <input type="text" name="publisher" className="publisher" />
+      <label className="notes">
+        notes
+        <textarea type="text" name="notes" className="notes form-input" />
       </label>
 
-      <input type="submit" value="Add" />
+      <div className="edit-buttons-wrapper" style={{ justifyContent: 'center', gridColumn: '1/-1' }}>
+        <div className="button-wrapper" style={{ margin: 'auto' }}>
+          <input type="submit" value="Add" className="edit-button-add" />
+        </div>
+      </div>
     </Form>
   );
 }

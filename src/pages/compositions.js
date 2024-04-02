@@ -8,9 +8,9 @@ function Compositions() {
 
   return (
     <div className="page-wrapper">
-      <div className="top-container">
+      <div className="top-container flex column">
         <Header />
-        <div className="content-container">
+        <div className="content-container flex column">
           <Catalog data={data} />
         </div>
         <Footer />

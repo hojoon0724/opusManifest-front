@@ -11,7 +11,8 @@ export async function createAction({ request, params }) {
     subtitle: formData.get('subtitle'),
     year: formData.get('year'),
     instrumentation: formData.get('instrumentation'),
-    publisher: formData.get('publisher'),
+    category: formData.get('category'),
+    notes: formData.get('notes'),
   };
   await fetch(`${URL}compositions/`, {
     method: 'post',
@@ -57,11 +58,14 @@ export const updateAction = async ({ updatedComposition, id }) => {
     },
     body: JSON.stringify(updatedComposition),
   });
+  console.log(`i made it here`);
 };
 
 // Delete
-export const deleteAction = async ({ params }) => {
-  await fetch(`${URL}${params.id}/`, {
+export const deleteAction = async ({ id }) => {
+  console.log(id);
+  console.log(`${URL}compositions/${id}/`);
+  await fetch(`${URL}compositions/${id}/`, {
     method: 'delete',
   });
 

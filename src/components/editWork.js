@@ -1,63 +1,10 @@
-// import { Form } from 'react-router-dom';
-
-// function EditWork({ work }) {
-//   const id = work.url.split('/')[4];
-
-//   return (
-//     <div className="composition-data-wrapper">
-//       {/* <div className="composition-data" key={id}>
-//         <div className="title">{work.title}</div>
-//         <div className="subtitle">{work.subtitle}</div>
-//         <div className="year">{work.year}</div>
-//         <div className="instrumentation">{work.instrumentation}</div>
-//         <div className="publisher">{work.publisher}</div>
-//       </div> */}
-//       <div className="edit-form-wrapper">
-//         <Form className="editing-block" action={`/compositions/${id}/`} method="post">
-//           <div className="work-title-wrapper">
-//             <label>
-//               title
-//               <input type="text" name="title" className="title form-input" defaultValue={work.title} />
-//             </label>
-//             <label>
-//               subtitle
-//               <input type="text" name="subtitle" className="subtitle form-input" defaultValue={work.subtitle} />
-//             </label>
-//           </div>
-//           <label>
-//             year
-//             <input type="text" name="year" className="year form-input" defaultValue={work.year} />
-//           </label>
-//           <label>
-//             instrumentation
-//             <input
-//               type="text"
-//               name="instrumentation"
-//               className="instrumentation form-input"
-//               defaultValue={work.instrumentation}
-//             />
-//           </label>
-//           <label>
-//             publisher
-//             <input type="text" name="publisher" className="publisher form-input" defaultValue={work.publisher} />
-//           </label>
-//           <input type="submit" value="Update" />
-//         </Form>
-//         <Form action={`/compositions/${id}/`} method="post">
-//           <input type="submit" value="Delete" />
-//         </Form>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default EditWork;
-
-import { Form } from 'react-router-dom';
 import { useState } from 'react';
-import { updateAction } from '../actions';
+import { deleteAction, updateAction } from '../actions';
+import { useNavigate } from 'react-router-dom';
 
-function EditWork({ work }) {
+function EditWork({ work, reload }) {
+  const navigate = useNavigate();
+  const [accordionClass, setAccordionClass] = useState('closed');
   const id = work.url.split('/')[4];
 
   const [formData, setFormData] = useState({
@@ -65,45 +12,76 @@ function EditWork({ work }) {
     subtitle: work.subtitle,
     year: work.year,
     instrumentation: work.instrumentation,
-    publisher: work.publisher,
+    category: work.category,
+    notes: work.notes,
   });
 
-  const handleSubmit = async (event) => {
+  //todo move action functions to editCatalog.js
+  const handleUpdate = async (event) => {
     event.preventDefault();
+    console.log(`handleUpdate ${id}`);
     try {
-      const formData = new FormData(event.target);
-      console.log(formData);
       const updatedComposition = {
-        title: formData.get('title'),
-        subtitle: formData.get('subtitle'),
-        year: formData.get('year'),
-        instrumentation: formData.get('instrumentation'),
-        publisher: formData.get('publisher'),
+        title: formData.title,
+        subtitle: formData.subtitle,
+        year: formData.year,
+        instrumentation: formData.instrumentation,
+        category: formData.category,
+        notes: formData.notes,
       };
       console.log(updatedComposition);
       await updateAction({ updatedComposition, id });
     } catch (error) {
       console.error('Error updating work:', error);
     }
+    return navigate('/dashboard');
   };
+
+  const handleDelete = async (event) => {
+    await deleteAction({ id });
+    return navigate('/dashboard');
+  };
+  //todo move action functions to editCatalog.js
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  return (
-    <div className="composition-data-wrapper">
-      {/* <div className="composition-data" key={id}>
-        <div className="title">{work.title}</div>
-        <div className="subtitle">{work.subtitle}</div>
-        <div className="year">{work.year}</div>
-        <div className="instrumentation">{work.instrumentation}</div>
-        <div className="publisher">{work.publisher}</div>
-      </div> */}
+  const handleAccordion = (event) => {
+    if (accordionClass === 'closed') {
+      setAccordionClass('open');
+    } else if (accordionClass === 'open') {
+      setAccordionClass('closed');
+    }
+  };
 
-      <div className="edit-form-wrapper">
-        <Form className="editing-block" onSubmit={handleSubmit}>
+  return (
+    <div className="composition-data-wrapper flex column">
+      <div id={id} className="composition-accordion-wrapper" onClick={handleAccordion}>
+        <div className="composition-data" key={id}>
+          <div className="year">{work.year}</div>
+          <div className="work-title-wrapper">
+            <div className="title">{work.title}</div>
+            <div className="subtitle">{work.subtitle}</div>
+          </div>
+          <div className="instrumentation">{work.instrumentation}</div>
+          <div className="category">{work.category}</div>
+        </div>
+      </div>
+
+      <div id={id} className={`edit-form-wrapper flex column ${accordionClass}`}>
+        <form id={id} className="edit-form flex row">
+          <label>
+            year
+            <input
+              type="text"
+              name="year"
+              className="year form-input"
+              value={formData.year}
+              onChange={handleInputChange}
+            />
+          </label>
           <div className="work-title-wrapper">
             <label>
               title
@@ -126,19 +104,10 @@ function EditWork({ work }) {
               />
             </label>
           </div>
-          <label>
-            year
-            <input
-              type="text"
-              name="year"
-              className="year form-input"
-              value={formData.year}
-              onChange={handleInputChange}
-            />
-          </label>
+
           <label>
             instrumentation
-            <input
+            <textarea
               type="text"
               name="instrumentation"
               className="instrumentation form-input"
@@ -147,20 +116,34 @@ function EditWork({ work }) {
             />
           </label>
           <label>
-            publisher
-            <input
+            category
+            <textarea
               type="text"
-              name="publisher"
-              className="publisher form-input"
-              value={formData.publisher}
+              name="category"
+              className="category form-input"
+              value={formData.category}
               onChange={handleInputChange}
             />
           </label>
-          <input type="submit" value="Update" />
-        </Form>
-        <Form action={`/compositions/${id}/`} method="post">
-          <input type="submit" value="Delete" />
-        </Form>
+          <label className="notes">
+            notes
+            <textarea
+              type="text"
+              name="notes"
+              className="notes form-input"
+              value={formData.notes}
+              onChange={handleInputChange}
+            />
+          </label>
+        </form>
+        <div className="edit-buttons-wrapper flex row">
+          <button className="edit-button-delete" type="submit" onClick={handleDelete}>
+            Delete
+          </button>
+          <button className="edit-button-update" type="submit" onClick={handleUpdate}>
+            Update
+          </button>
+        </div>
       </div>
       <hr />
     </div>

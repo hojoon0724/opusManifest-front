@@ -9,14 +9,16 @@ function Dashboard() {
 
   return (
     <div className="page-wrapper">
-      <div className="top-container">
+      <div className="top-container flex column">
         <Header />
-        <div className="content-container">
+        <div className="content-container flex column">
           <div className="add-new-work-form-container">
+            <div className="add-new-work-title">Add new work</div>
             <AddNewWork />
           </div>
+          <hr style={{ margin: '48px 0px' }} />
           <div className="existing-works-container">
-            <EditCatalog data={data} />
+            <EditCatalog data={data.reverse()} />
           </div>
         </div>
         <Footer />
