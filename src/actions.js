@@ -33,6 +33,7 @@ export const updateAction = async ({ updatedComposition, id }) => {
     },
     body: JSON.stringify(updatedComposition),
   });
+  return redirect('/dashboard');
 };
 
 // Delete

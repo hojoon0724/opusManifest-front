@@ -33,10 +33,9 @@ function EditWork({ work, handleUpdate }) {
   };
 
   const handleDelete = async (event) => {
+    handleAccordion();
     await deleteAction({ id });
-    return navigate('/dashboard');
   };
-  //todo move action functions to editCatalog.js
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

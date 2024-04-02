@@ -6,17 +6,17 @@ import { useNavigate } from 'react-router-dom';
 export function EditCatalog({ data }) {
   console.log(`editCatalog`);
   const navigate = useNavigate();
-  const [workDetails, setWorkDetails] = useState(data);
-  const reloadData = async () => {
-    setWorkDetails(data);
-  };
+  // const [workDetails, setWorkDetails] = useState(data);
+  // const reloadData = async () => {
+  //   setWorkDetails(data);
+  // };
 
   //todo add action functions
   const handleUpdate = async (formData, id) => {
     try {
       const updatedComposition = formData;
       await updateAction({ updatedComposition, id });
-      await reloadData();
+      // await reloadData();
     } catch (error) {
       console.error('Error updating work:', error);
     }
@@ -27,8 +27,9 @@ export function EditCatalog({ data }) {
 
   return (
     <div className="edit-catalog">
-      {workDetails.map((work, i) => (
-        <EditWork work={work} key={i} reload={reloadData} handleUpdate={handleUpdate} />
+      {data.map((work, i) => (
+        // {workDetails.map((work, i) => (
+        <EditWork work={work} key={i} handleUpdate={handleUpdate} />
       ))}
     </div>
   );
