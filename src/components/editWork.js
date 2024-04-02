@@ -35,6 +35,7 @@ function EditWork({ work, handleUpdate }) {
   const handleDelete = async (event) => {
     handleAccordion();
     await deleteAction({ id });
+    return navigate('/dashboard');
   };
 
   const handleInputChange = (event) => {

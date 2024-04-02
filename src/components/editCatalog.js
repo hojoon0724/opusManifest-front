@@ -1,10 +1,9 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import EditWork from './editWork';
 import { updateAction } from '../actions';
 import { useNavigate } from 'react-router-dom';
 
 export function EditCatalog({ data }) {
-  console.log(`editCatalog`);
   const navigate = useNavigate();
   // const [workDetails, setWorkDetails] = useState(data);
   // const reloadData = async () => {

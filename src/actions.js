@@ -5,7 +5,6 @@ const URL = process.env.REACT_APP_URL;
 // Create
 export async function createAction({ request, params }) {
   const formData = await request.formData();
-
   const createdComposition = {
     title: formData.get('title'),
     subtitle: formData.get('subtitle'),
@@ -43,6 +42,5 @@ export const deleteAction = async ({ id }) => {
   await fetch(`${URL}compositions/${id}/`, {
     method: 'delete',
   });
-
   return redirect('/dashboard');
 };
