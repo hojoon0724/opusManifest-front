@@ -25,32 +25,7 @@ export async function createAction({ request, params }) {
 }
 
 // Update
-// export const updateAction = async ({ request, params }) => {
-//   const formData = await request.formData();
-//   console.dir(formData);
-//   const updatedComposition = {
-//     title: formData.get('title'),
-//     subtitle: formData.get('subtitle'),
-//     year: formData.get('year'),
-//     instrumentation: formData.get('instrumentation'),
-//     publisher: formData.get('publisher'),
-//   };
-//   console.dir(updatedComposition);
-
-//   await fetch(`${URL}compositions/${params.id}/`, {
-//     method: 'put',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(updatedComposition),
-//   });
-
-//   return redirect(`/dashboard`);
-// };
-
 export const updateAction = async ({ updatedComposition, id }) => {
-  console.log(updatedComposition);
-  console.log(id);
   await fetch(`${URL}compositions/${id}/`, {
     method: 'put',
     headers: {
@@ -58,7 +33,6 @@ export const updateAction = async ({ updatedComposition, id }) => {
     },
     body: JSON.stringify(updatedComposition),
   });
-  console.log(`i made it here`);
 };
 
 // Delete

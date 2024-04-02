@@ -5,6 +5,7 @@ import { EditCatalog } from '../components/editCatalog';
 import { useLoaderData } from 'react-router-dom';
 
 function Dashboard() {
+  console.log(`dashboard`);
   const data = useLoaderData();
 
   return (
@@ -18,7 +19,7 @@ function Dashboard() {
           </div>
           <hr style={{ margin: '48px 0px' }} />
           <div className="existing-works-container">
-            <EditCatalog data={data.reverse()} />
+            <EditCatalog data={data} />
           </div>
         </div>
         <Footer />

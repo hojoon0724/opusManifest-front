@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { deleteAction, updateAction } from '../actions';
+import { deleteAction } from '../actions';
 import { useNavigate } from 'react-router-dom';
 
-function EditWork({ work, reload }) {
+function EditWork({ work, handleUpdate }) {
+  console.log(`editWork`);
   const navigate = useNavigate();
   const [accordionClass, setAccordionClass] = useState('closed');
   const id = work.url.split('/')[4];
@@ -16,25 +17,19 @@ function EditWork({ work, reload }) {
     notes: work.notes,
   });
 
-  //todo move action functions to editCatalog.js
-  const handleUpdate = async (event) => {
+  // sends the formData to the parent comp
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`handleUpdate ${id}`);
-    try {
-      const updatedComposition = {
-        title: formData.title,
-        subtitle: formData.subtitle,
-        year: formData.year,
-        instrumentation: formData.instrumentation,
-        category: formData.category,
-        notes: formData.notes,
-      };
-      console.log(updatedComposition);
-      await updateAction({ updatedComposition, id });
-    } catch (error) {
-      console.error('Error updating work:', error);
-    }
-    return navigate('/dashboard');
+    const updatedComposition = {
+      title: formData.title,
+      subtitle: formData.subtitle,
+      year: formData.year,
+      instrumentation: formData.instrumentation,
+      category: formData.category,
+      notes: formData.notes,
+    };
+    handleUpdate(updatedComposition, id);
+    handleAccordion();
   };
 
   const handleDelete = async (event) => {
@@ -140,7 +135,7 @@ function EditWork({ work, reload }) {
           <button className="edit-button-delete" type="submit" onClick={handleDelete}>
             Delete
           </button>
-          <button className="edit-button-update" type="submit" onClick={handleUpdate}>
+          <button className="edit-button-update" type="submit" onClick={handleSubmit}>
             Update
           </button>
         </div>

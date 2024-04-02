@@ -10,6 +10,5 @@ export async function compositionsLoader() {
 export async function workDetailsLoader({ params }) {
   const response = await fetch(`${URL}compositions/${params.id}/`);
   const work = await response.json();
-  console.log(work);
   return work;
 }
