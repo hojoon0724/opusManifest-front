@@ -14,35 +14,48 @@ a {
 }
 
 :root {
-  --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
-  --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
-  --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
-  --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
-  --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
-  --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
-  --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
   font-family: roboto;
 
-  --hue: 50;
-  --saturation: 40%;
+  --hue: 140;
+  --saturation: 70%;
 
   --black: hsl(var(--hue), var(--saturation), 3%);
-  --white: hsl(var(--hue), var(--saturation), 93%);
   --dark: hsl(var(--hue), var(--saturation), 15%);
   --bright: hsl(var(--hue), var(--saturation), 85%);
+  --white: hsl(var(--hue), var(--saturation), 93%);
 
   --tr-slow: 0.7s ease-in-out;
   --tr-fast: 0.3s ease-in-out;
 
-  --error: hsl(0, 100%, 66%);
-  --success: hsl(108, 100%, 70%);
-  --accent: hsl(var(--hue), 100%, 70%);
+  --error: hsl(0, 100%, 50%);
+  --success: hsl(140, 100%, 50%);
+  --accent: hsl(var(--hue), 100%, 50%);
 
-  --main-gradient: radial-gradient(
+  --spectrum1: hsl(240, 100%, 25%); /* 0% */
+  --spectrum2: hsl(216, 100%, 25%); /* 11% */
+  --spectrum3: hsl(200, 100%, 25%); /* 33% */
+  --spectrum4: hsl(175, 100%, 27.5%); /* 66% */
+  --spectrum5: hsl(150, 100%, 50%); /* 100% */
+
+  --spec1: 0%;
+  --spec2: 11%;
+  --spec3: 33%;
+  --spec4: 66%;
+  --spec5: 100%;
+
+  --main-gradient-alt: radial-gradient(
     circle 821px at 0.7% 1.8%,
     hsl(var(--hue), 80%, 60%) 0%,
     hsl(var(--hue), 90%, 40%) 30%,
     hsl(var(--hue), 100%, 25%) 100%
+  );
+  --main-gradient: linear-gradient(
+    45deg,
+    var(--spectrum1) var(--spec1),
+    var(--spectrum2) var(--spec2),
+    var(--spectrum3) var(--spec3),
+    var(--spectrum4) var(--spec4),
+    var(--spectrum5) var(--spec5)
   );
 }
 
@@ -53,6 +66,7 @@ html {
 
 body {
   min-height: 100svh;
+  background-color: hsl(var(--hue), 100%, 98%);
 }
 
 img,
@@ -106,19 +120,18 @@ p {
   padding: 20px;
   background-image: var(--main-gradient);
   background-color: var(--dark);
-  color: var(--dark);
+  color: var(--white);
 }
 
 .nav > * {
   margin-left: 2ch;
-  text-shadow: 0px 0px 9px var(--dark);
-  color: var(--white);
+  text-shadow: 0px 0px 9px var(--bright);
+  color: var(--black);
 }
 
 .footer {
-  background-color: var(--dark);
-  color: var(--white);
-  min-height: 16px;
+  background-color: var(--accent);
+  color: var(--black);
   padding: 16px;
 }
 
@@ -267,6 +280,7 @@ hr {
   border-radius: 4px;
   border: 1px solid var(--dark);
   cursor: pointer;
+  font-weight: 500;
 }
 
 .edit-button-delete {
@@ -426,7 +440,6 @@ hr {
   }
 
   .subtitle::before {
-    content: 'content';
   }
 
   .instrumentation::before {

@@ -24,7 +24,8 @@ function Dashboard() {
           <div className="add-new-work-form-container">
             <AddNewWork />
           </div>
-          <hr style={{ margin: '48px 0px' }} />
+          <hr />
+          {/* <hr style={{ margin: '48px 0px' }} /> */}
           <div className="existing-works-container">
             <EditCatalog data={sortedData} />
           </div>
