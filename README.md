@@ -10,7 +10,7 @@
 | Repo-back     | https://github.com/hojoon0724/opusManifest-back                                                  |
 | Repo-front    | https://github.com/hojoon0724/opusManifest-front                                                 |
 | Live Backend  | https://opusmanifest-back.onrender.com                                                           |
-| Live Frontend |                                                                                                  |
+| Live Frontend | https://opusmanifest.netlify.app                                                                 |
 
 ## Problem Being Solved and Target Market
 
