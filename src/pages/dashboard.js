@@ -22,7 +22,6 @@ function Dashboard() {
         <Header />
         <div className="content-container flex column">
           <div className="add-new-work-form-container">
-            <div className="add-new-work-title">Add new work</div>
             <AddNewWork />
           </div>
           <hr style={{ margin: '48px 0px' }} />

@@ -1,5 +1,9 @@
 export function WorkDetails({ work }) {
   console.log(work);
+  const formatNotes = (notes) => {
+    return { __html: notes.replace(/\n/g, '<br>') };
+  };
+
   return (
     <div className="details-work-details-wrapper flex column">
       <div className="details-composition-data flex column">
@@ -35,7 +39,7 @@ export function WorkDetails({ work }) {
             <tr>
               <td style={{ verticalAlign: 'top' }}>notes</td>
               <td style={{ verticalAlign: 'top' }}>
-                <div className="details-notes">{work.notes}</div>
+                <div className="details-notes" dangerouslySetInnerHTML={formatNotes(work.notes)} />
               </td>
             </tr>
           </tbody>

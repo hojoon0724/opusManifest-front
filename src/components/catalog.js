@@ -4,7 +4,7 @@ import Work from './work';
 export default function Catalog({ data }) {
   return (
     <div className="catalog">
-      <div className="composition-data" style={{ alignItems: 'end', fontSize: '1rem' }}>
+      <div className="composition-data-key" style={{ alignItems: 'end', fontSize: '1rem' }}>
         <div className="year" style={{ fontSize: 'inherit' }}>
           Year
         </div>

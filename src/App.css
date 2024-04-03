@@ -23,13 +23,13 @@ a {
   --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
   font-family: roboto;
 
-  --hue: 200;
-  --saturation: 100%;
+  --hue: 50;
+  --saturation: 40%;
 
   --black: hsl(var(--hue), var(--saturation), 3%);
-  --white: hsl(var(--hue), var(--saturation), 98%);
-  --dark: hsl(var(--hue), var(--saturation), 10%);
-  --bright: hsl(var(--hue), 70%, 85%);
+  --white: hsl(var(--hue), var(--saturation), 93%);
+  --dark: hsl(var(--hue), var(--saturation), 15%);
+  --bright: hsl(var(--hue), var(--saturation), 85%);
 
   --tr-slow: 0.7s ease-in-out;
   --tr-fast: 0.3s ease-in-out;
@@ -122,6 +122,7 @@ p {
   width: 100%;
 }
 
+.composition-data-key,
 .composition-data,
 .edit-form {
   display: grid;
@@ -131,7 +132,8 @@ p {
   grid-template-columns: 5ch 50% auto 16ch;
   /* border: 1px solid blue; */
 }
-.composition-data {
+.composition-data-key > * {
+  padding: 8px;
 }
 
 .composition-data > * {
@@ -144,6 +146,7 @@ p {
   width: 100%;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .title {
@@ -162,6 +165,7 @@ p {
 .year {
   width: 5ch;
   align-items: center;
+  justify-content: center;
 }
 
 .instrumentation {
@@ -208,8 +212,14 @@ textarea {
 hr {
   margin: 8px 0px;
 }
-
-.add-new-work {
+.add-new-work-form {
+  background-color: var(--white);
+}
+.add-new-work-title {
+  background-color: var(--bright);
+  padding: 16px;
+  text-transform: uppercase;
+  letter-spacing: 20%;
 }
 
 .composition-data-wrapper {
@@ -232,9 +242,6 @@ hr {
   padding: 0px 8px;
 }
 
-.composition-accordion-wrapper > div > div {
-}
-
 .edit-buttons-wrapper {
   width: 100%;
   justify-content: space-between;
@@ -248,6 +255,7 @@ hr {
   padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid var(--dark);
+  cursor: pointer;
 }
 
 .edit-button-delete {
@@ -330,4 +338,99 @@ hr {
 .details-category {
 }
 .details-notes {
+}
+
+@media only screen and (max-width: 980px) {
+  .edit-form {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .composition-data {
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 25% auto; */
+    row-gap: 0px;
+    justify-content: start;
+  }
+
+  .composition-data > * {
+    display: grid;
+    grid-template-columns: 13ch 1fr 1fr;
+    column-gap: 1ch;
+    row-gap: 0px;
+    box-sizing: border-box;
+    align-items: start;
+    padding: 4px;
+    /* width: 100%; */
+  }
+  .composition-data > *::before {
+    min-width: 13ch;
+    text-align: right;
+    padding-right: 1ch;
+  }
+
+  .year {
+    justify-content: start;
+  }
+
+  label > .year {
+    width: 100%;
+  }
+
+  .year::before {
+    content: 'Year: ';
+  }
+
+  .work-title-wrapper {
+    display: grid;
+    width: 100%;
+    align-items: center;
+  }
+
+  .title,
+  .subtitle {
+    grid-column: 2 / span 2;
+  }
+
+  form > .work-title-wrapper {
+    display: flex;
+  }
+  form > .work-title-wrapper > *,
+  form > .work-title-wrapper > * > *,
+  form > .work-title-wrapper > * > label > .title {
+    width: 100%;
+  }
+
+  form > .work-title-wrapper::before {
+    content: none;
+  }
+
+  .work-title-wrapper::before {
+    content: 'Title: ';
+    grid-row: 1 / span 2;
+  }
+
+  .subtitle::before {
+    content: 'content';
+  }
+
+  .instrumentation::before {
+    content: 'Instrumentation: ';
+  }
+
+  .category::before {
+    content: 'Category: ';
+  }
+
+  .category {
+    text-align: left;
+    justify-content: start;
+  }
+
+  .composition-data-key {
+    display: none;
+  }
 }
